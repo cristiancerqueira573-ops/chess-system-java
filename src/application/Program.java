@@ -1,17 +1,16 @@
 import application.UI;
 import boardgame.Board;
 import boardgame.Position;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.ChessPosition;
-import chess.Color;
+import chess.*;
 
 void main() {
 
 
     ChessMatch chessMatch = new ChessMatch();
     Scanner sc = new Scanner(System.in);
-        while (true) {
+    while (true) {
+        try {
+            UI.clearScreen();
             UI.printBoard(chessMatch.getPieces());
             System.out.println();
             System.out.print("Source: ");
@@ -21,10 +20,16 @@ void main() {
             System.out.print("Target: ");
             ChessPosition target = UI.readChessPosition(sc);
 
-            ChessPiece capturedPrice = chessMatch.performChessMovie(source,target);
+            ChessPiece capturedPrice = chessMatch.performChessMovie(source, target);
+
+        } catch (ChessException e) {
+            System.out.println(e.getMessage());
+            sc.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+            sc.nextLine();
+
+
+        }
     }
-
-
-
-
 }
