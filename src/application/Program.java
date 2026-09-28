@@ -20,7 +20,7 @@ void main() {
             boolean[][] possibleMoves = chessMatch.possibleMoves(source);
             UI.clearScreen();
             UI.printBoard(chessMatch.getPieces(), possibleMoves);
-            
+
 
             System.out.println();
             System.out.print("Target: ");
