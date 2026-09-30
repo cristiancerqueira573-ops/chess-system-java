@@ -7,11 +7,12 @@ void main() {
 
 
     ChessMatch chessMatch = new ChessMatch();
+    List<ChessPiece> captured = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     while (true) {
         try {
             UI.clearScreen();
-            UI.printMatch(chessMatch);
+            UI.printMatch(chessMatch,captured);
             System.out.println();
             System.out.print("Source: ");
             ChessPosition source = UI.readChessPosition(sc);
@@ -29,6 +30,10 @@ void main() {
 
 
             ChessPiece capturedPrice = chessMatch.performChessMovie(source, target);
+
+            if(capturedPrice != null) {
+                captured.add(capturedPrice);
+            }
 
         } catch (ChessException e) {
             System.out.println(e.getMessage());
