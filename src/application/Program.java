@@ -12,7 +12,7 @@ void main() {
     while (true) {
         try {
             UI.clearScreen();
-            UI.printMatch(chessMatch,captured);
+            UI.printMatch(chessMatch, captured);
             System.out.println();
             System.out.print("Source: ");
             ChessPosition source = UI.readChessPosition(sc);
@@ -28,10 +28,9 @@ void main() {
             ChessPosition target = UI.readChessPosition(sc);
 
 
-
             ChessPiece capturedPrice = chessMatch.performChessMovie(source, target);
 
-            if(capturedPrice != null) {
+            if (capturedPrice != null) {
                 captured.add(capturedPrice);
             }
 
@@ -41,8 +40,9 @@ void main() {
         } catch (InputMismatchException e) {
             System.out.println(e.getMessage());
             sc.nextLine();
-
+        }
 
         }
+
     }
-}
+
