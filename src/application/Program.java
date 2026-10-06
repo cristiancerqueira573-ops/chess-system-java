@@ -3,13 +3,13 @@ import boardgame.Board;
 import boardgame.Position;
 import chess.*;
 
-void main() {
+public static void main(String[] args) {
 
 
     ChessMatch chessMatch = new ChessMatch();
     List<ChessPiece> captured = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
-    while (true) {
+    while (!chessMatch.getCheckMate()) {
         try {
             UI.clearScreen();
             UI.printMatch(chessMatch, captured);
@@ -43,6 +43,10 @@ void main() {
         }
 
         }
+
+        UI.clearScreen();
+        UI.printMatch(chessMatch, captured);
+
 
     }
 
